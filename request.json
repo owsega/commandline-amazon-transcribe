@@ -1,6 +1,0 @@
-{
-    "TranscriptionJobName": "transcribe_job_1527079214",
-    "LanguageCode": "en-US",
-    "MediaFormat": "wav",
-    "Media": {"MediaFileUri": "https://s3.us-east-2.amazonaws.com/seyi-bucket001/transcribe_job_1527079214.wav"}
-}
