@@ -10,7 +10,7 @@
 
 date=`date +%s`
 request_ID="transcribe_job_$date"
-audio_length=14
+audio_length=5
 aws_s3_bucket="seyi-bucket001"
 aws_region="us-east-2"
 
@@ -36,9 +36,9 @@ aws transcribe start-transcription-job --region ${aws_region} --cli-input-json f
 
 # 4. Keep checking Transcribe job till its COMPLETED
 echo "Transcription $request_ID in progress ..."
-aws transcribe get-transcription-job --region ${aws_region} --transcription-job-name $request_ID > response.json
+aws transcribe get-transcription-job --region ${aws_region} --transcription-job-name ${request_ID} > response.json
 x=1
-while [ $x -le 2 ]
+while [ ${x} -le 2 ]
 do
   if grep -Fq "COMPLETED" response.json
   then
@@ -46,7 +46,7 @@ do
       x=3
   else
       sleep 5  # 5 seconds sleep before trying again
-      aws transcribe get-transcription-job --region ${aws_region} --transcription-job-name $request_ID > response.json
+      aws transcribe get-transcription-job --region ${aws_region} --transcription-job-name ${request_ID} > response.json
   fi
 done
 echo "Transcription done."
