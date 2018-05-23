@@ -52,5 +52,5 @@ done
 echo "Transcription done."
 
 # 5. Download Transcribe job results and display
-echo "Retrieving Transcript"
-curl -s `jq -rcM .TranscriptionJob.Transcript.TranscriptFileUri response.json` | jq .results.transcripts
+echo "Retrieving Transcript ..."
+curl -s `jq -rcM .TranscriptionJob.Transcript.TranscriptFileUri response.json` | jq .results.transcripts[].transcript
