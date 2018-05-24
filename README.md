@@ -16,3 +16,4 @@ The bash script depends on a few other utils including
     - configure your aws cli with the IAM user
  - edit `autotranscribe.sh` to set up the recording times, aws region, bucket name, etc.
  
+To execute the script run `sh autotranscribe.sh`
